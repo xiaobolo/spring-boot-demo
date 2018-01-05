@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header_fragment">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">title</title>
+</head>
+<body>
+<h1 th:text="${name}">name</h1>
+<div th:text="${title}">title</div>
+<div th:text="|Welcome to our application, ${name}|"></div>
+<div th:if="${loginId}==0">
+    <ul>
+        <li th:each="user : ${users}">
+            <a th:href="@{https://www.baidu.com}" th:text="${user}"></a>
+        </li>
+    </ul>
+</div>
+<div th:text="${#dates.format(date, 'yyyy/mm/dd HH:mm')}">date</div>
+</body>
+<footer th:replace="fragments/header :: footer_fragment">
+
+</footer>
+</html>
